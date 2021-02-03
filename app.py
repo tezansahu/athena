@@ -11,7 +11,7 @@ def main():
     st.title('Project Athena')
     st.subheader('A Python-based playground to understand Computer Graphics Curves')
 
-    st.sidebar.title("Navigation")
+    st.sidebar.title("Curve Settings")
     selection = st.sidebar.radio("Choose the Curve to play with", list(CURVES.keys()))
     with st.spinner(f"Loading {selection} ..."):
         CURVES[selection].show()
