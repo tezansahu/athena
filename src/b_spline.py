@@ -11,6 +11,16 @@ DIMS = {
 
 def show():
     st.title('B-Spline')
+
+    # Info about B-Splines
+    st.markdown("""
+    ### Know more about B-Spline:
+
+    - [B Splines](https://en.wikipedia.org/wiki/B-spline)
+    - [Non-Uniform Rational B Spline (NURBS) Curve](https://en.wikipedia.org/wiki/Non-uniform_rational_B-spline)
+    - [De Boor's Algorithm](https://en.wikipedia.org/wiki/De_Boor%27s_algorithm)
+
+    """)
     
     dims = DIMS[st.sidebar.radio("Choose the space", ["2D", "3D"])]
 
@@ -73,8 +83,10 @@ def show():
         if nurbs_enabled:
             w[i] = st.sidebar.number_input("Weight", min_value=0.0, value=1.0, key=f"w_{i}")
 
+    # Calculate the points on the B-Spline
     pts = calc_bspline(k, T, V, knots, knot_type, w)
 
+    # Plot the B-Spline
     show_bspline(pts, V)
 
 

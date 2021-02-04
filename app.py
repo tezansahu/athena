@@ -8,6 +8,12 @@ CURVES = {
 }
 
 def main():
+    st.set_page_config(
+        page_title="Project Athena",
+        page_icon="📈",
+        layout="centered",
+        initial_sidebar_state="expanded"
+    )
     st.title('Project Athena')
     st.subheader('An interactive playground to visualize Computer Graphics Curves')
 
@@ -16,7 +22,7 @@ def main():
     with st.spinner(f"Loading {selection} ..."):
         CURVES[selection].show()
 
-    st.sidebar.info('_Developed with ❤️ by [Tezan Sahu](https://tezansahu.github.io/)_')
+    st.info('Developed with ❤️ by [Tezan Sahu](https://tezansahu.github.io/)')
 
 if __name__ == "__main__":
 	main()

@@ -20,6 +20,14 @@ DIMS = {
 
 def show():
     st.title('Bezier Curve')
+
+    # Info about Bezier Curve
+    st.markdown("""
+    ### Know more about Bezier Curve:
+
+    - [Bezier Curve](https://en.wikipedia.org/wiki/B%C3%A9zier_curve)
+
+    """)
     
     dims = DIMS[st.sidebar.radio("Choose the space", ["2D", "3D"])]
 
