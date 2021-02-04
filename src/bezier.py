@@ -1,7 +1,6 @@
 import streamlit as st
 import numpy as np
 import pandas as pd
-import plotly.express as px
 import plotly.graph_objs as go
 
 t = np.transpose(np.array([np.linspace(0, 1, 101)]))        # Values of t for plotting curve
@@ -58,27 +57,27 @@ def show_bezier(pts, V):
     if pts.shape[1] == 2:
         control_pts = pd.DataFrame(data=V, columns=["x", "y"])
         bezier_pts = pd.DataFrame(data=pts, columns=["x", "y"])
-        # fig = px.line(bezier_pts, x="X-axis", y="Y-axis", title="Bezier Curve Using Given Control Points")
-        # fig.update_traces()
-        fig = go.Figure([
-            go.Scatter(
-                name="Bezier Curve",
-                x=bezier_pts["x"],
-                y=bezier_pts["y"],
-                mode="lines",
-                line=dict(width=3, color="blue"),
-                showlegend=True
-            ),
-            go.Scatter(
-                name="Control Polynomial",
-                x=control_pts["x"],
-                y=control_pts["y"],
-                mode="markers+lines",
-                marker=dict(color="black", size=5),
-                line=dict(color="red", width=1),
-                showlegend=True
-            )
-        ])
+        fig = go.Figure(
+            data = [
+                go.Scatter(
+                    name="Bezier Curve",
+                    x=bezier_pts["x"],
+                    y=bezier_pts["y"],
+                    mode="lines",
+                    line=dict(width=3, color="blue"),
+                    showlegend=True
+                ),
+                go.Scatter(
+                    name="Control Polynomial",
+                    x=control_pts["x"],
+                    y=control_pts["y"],
+                    mode="markers+lines",
+                    marker=dict(color="black", size=5),
+                    line=dict(color="red", width=1),
+                    showlegend=True
+                )
+            ],
+        )
         fig.update_layout(
             title="2D Bezier Curve Using Given Control Points",
             xaxis_title="X Axis",

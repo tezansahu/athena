@@ -9,9 +9,9 @@ CURVES = {
 
 def main():
     st.title('Project Athena')
-    st.subheader('A Python-based playground to understand Computer Graphics Curves')
+    st.subheader('An interactive playground to visualize Computer Graphics Curves')
 
-    st.sidebar.title("Curve Settings")
+    st.sidebar.title("Settings")
     selection = st.sidebar.radio("Choose the Curve to play with", list(CURVES.keys()))
     with st.spinner(f"Loading {selection} ..."):
         CURVES[selection].show()
